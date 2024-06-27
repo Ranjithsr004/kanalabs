@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home/Home';
+import { ReactComponent as MySVG } from "./arrow.svg";
+import ScrollToTop from 'react-scroll-to-top'
+import WalletCard from './components/WalletCard/Walletcard';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className=''>
+      <ScrollToTop smooth top='100' component={<MySVG />}/>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/swap' element={<WalletCard />}/>
+      </Routes>
     </div>
+    </Router>
   );
 }
 
